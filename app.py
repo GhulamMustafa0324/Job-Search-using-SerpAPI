@@ -1,5 +1,5 @@
 import streamlit as st
-from google-search-results import search
+from serpapi import GoogleSearch
 
 st.set_page_config(
     page_title="Job Searching Chatbot",
@@ -149,7 +149,7 @@ def serpapi_search(query):
                 "api_key": "aa9376e3b6107fb3e2ae0eb1284c28de5a904793a977ec7f37e17b7427e1d1bf"
             }
 
-            serpapi_results = search(search_params)
+            serpapi_results = GoogleSearch(search_params)  # Update this line
             return serpapi_results.get("organic_results", [])
     except Exception as e:
         # Handle the exception and return an error message
